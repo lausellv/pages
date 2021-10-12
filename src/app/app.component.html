@@ -1,6 +1,6 @@
-<nav>
+<nav >
   <ul class="pagination">
-    <li class="page-item" [ngClass]="{ disabled: currentPage === 0 }">
+    <li class="page-item"  [ngClass]="{ disabled: currentPage === 0 }">
       <a class="page-link" (click)="currentPage = currentPage - 1">Prev</a>
     </li>
 
@@ -10,7 +10,6 @@
         [ngClass]="{ active: i === currentPage }"
         *ngIf="checkWindowIndex(i)"
       >
-        <!-- <a (click)="currentPage = i" href="" class="page-link">{{ i + 1 }}</a> CANNOT USE HREF-->
         <a (click)="currentPage = i" class="page-link">{{ i + 1 }}</a>
       </li>
     </ng-container>
@@ -23,6 +22,11 @@
     </li>
   </ul>
 </nav>
+
+<div>
+  <h4 appClass>{{ images[currentPage].title }}</h4>
+  <img [src]="images[currentPage].url" />
+</div>
 
 <!-- <div [ngSwitch]="currentPage">
   <div *ngSwitchCase="0">
@@ -37,11 +41,6 @@
     Unknown current page
   </div>
 </div> -->
-
-<div>
-  <h4 appClass >{{ images[currentPage].title }}</h4>
-  <img [src]="images[currentPage].url"/>
-</div>
 
 <!-- <nav>
   <ul class="pagination">
